@@ -1,6 +1,7 @@
 # VPC and IGW
 resource "aws_vpc" "VPC" {
-  cidr_block = "172.16.0.0/16"
+  cidr_block           = "172.16.0.0/16"
+  enable_dns_hostnames = true
 
   tags = {
     Name  = "VPC - DM"
@@ -19,9 +20,10 @@ resource "aws_internet_gateway" "IGW" {
 
 # Subnets 
 resource "aws_subnet" "PublicSubnetA" {
-  cidr_block        = "172.16.1.0/24"
-  vpc_id            = aws_vpc.VPC.id
-  availability_zone = "us-west-2a"
+  cidr_block              = "172.16.1.0/24"
+  vpc_id                  = aws_vpc.VPC.id
+  availability_zone       = "us-west-2a"
+  map_public_ip_on_launch = true
 
   tags = {
     Name  = "Public Subnet A - DM"
@@ -30,9 +32,10 @@ resource "aws_subnet" "PublicSubnetA" {
 }
 
 resource "aws_subnet" "PublicSubnetB" {
-  cidr_block        = "172.16.2.0/24"
-  vpc_id            = aws_vpc.VPC.id
-  availability_zone = "us-west-2b"
+  cidr_block              = "172.16.2.0/24"
+  vpc_id                  = aws_vpc.VPC.id
+  availability_zone       = "us-west-2b"
+  map_public_ip_on_launch = true
 
   tags = {
     Name  = "Public Subnet B - DM"
@@ -41,9 +44,10 @@ resource "aws_subnet" "PublicSubnetB" {
 }
 
 resource "aws_subnet" "PublicSubnetC" {
-  cidr_block        = "172.16.3.0/24"
-  vpc_id            = aws_vpc.VPC.id
-  availability_zone = "us-west-2c"
+  cidr_block              = "172.16.3.0/24"
+  vpc_id                  = aws_vpc.VPC.id
+  availability_zone       = "us-west-2c"
+  map_public_ip_on_launch = true
 
   tags = {
     Name  = "Public Subnet C - DM"

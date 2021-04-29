@@ -70,41 +70,41 @@ resource "aws_instance" "BastionC" {
   }
 }
 
-resource "aws_instance" "AppA" {
-  ami             = data.aws_ami.amazon-linux-2.id
-  instance_type   = "t3.micro"
-  key_name        = aws_key_pair.terraform_ec2_key.id
-  security_groups = [var.sg_appServers]
-  subnet_id       = var.AppA
+# resource "aws_instance" "AppA" {
+#   ami             = data.aws_ami.amazon-linux-2.id
+#   instance_type   = "t3.micro"
+#   key_name        = aws_key_pair.terraform_ec2_key.id
+#   security_groups = [var.sg_appServers]
+#   subnet_id       = var.AppA
 
-  tags = {
-    Name  = "App A - DM"
-    Owner = "DM"
-  }
-}
+#   tags = {
+#     Name  = "App A - DM"
+#     Owner = "DM"
+#   }
+# }
 
-resource "aws_instance" "AppB" {
-  ami             = data.aws_ami.amazon-linux-2.id
-  instance_type   = "t3.micro"
-  key_name        = aws_key_pair.terraform_ec2_key.id
-  security_groups = [var.sg_appServers]
-  subnet_id       = var.AppB
+# resource "aws_instance" "AppB" {
+#   ami             = data.aws_ami.amazon-linux-2.id
+#   instance_type   = "t3.micro"
+#   key_name        = aws_key_pair.terraform_ec2_key.id
+#   security_groups = [var.sg_appServers]
+#   subnet_id       = var.AppB
 
-  tags = {
-    Name  = "App B - DM"
-    Owner = "DM"
-  }
-}
+#   tags = {
+#     Name  = "App B - DM"
+#     Owner = "DM"
+#   }
+# }
 
-resource "aws_instance" "AppC" {
-  ami             = data.aws_ami.amazon-linux-2.id
-  instance_type   = "t3.micro"
-  key_name        = aws_key_pair.terraform_ec2_key.id
-  security_groups = [var.sg_appServers]
-  subnet_id       = var.AppC
+# resource "aws_instance" "AppC" {
+#   ami             = data.aws_ami.amazon-linux-2.id
+#   instance_type   = "t3.micro"
+#   key_name        = aws_key_pair.terraform_ec2_key.id
+#   security_groups = [var.sg_appServers]
+#   subnet_id       = var.AppC
 
-  tags = {
-    Name  = "App C - DM"
-    Owner = "DM"
-  }
-}
+#   tags = {
+#     Name  = "App C - DM"
+#     Owner = "DM"
+#   }
+# }
